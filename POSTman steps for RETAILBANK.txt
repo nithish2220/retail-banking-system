@@ -1,0 +1,112 @@
+1. EMployee Login 
+POST :
+
+http://localhost:8080/auth-ms/login  
+
+{
+    "userid": "EMPLOYEE101",
+    "username": "emp",
+    "password": "emp",
+    "authToken" : null,
+    "role": "EMPLOYEE"
+}
+
+
+2. Employee creates Customer 1
+
+POST: 
+
+http://localhost:8085/customer/createCustomer
+
+{
+    "userid" : "CUSTOMER105",
+    "username" : "gowshik",
+    "password" : "gowshik",
+    "dateOfBirth" : "13/10/1998",
+    "pan" : "ABC4547",
+    "address" : "Omr,Chennai",
+    "accounts" : [{
+        "accountId" : 98745625,
+        "customerId" : "CUSTOMER105",
+        "currentBalance" : 75000,
+        "accountType" : "Savings",
+        "ownerName" : "Gowshik",
+        "transactions":null
+
+    }]
+}
+
+
+3. Employee creates Customer 2
+
+POST:
+ 
+http://localhost:8085/customer/createCustomer
+
+{
+    "userid" : "CUSTOMER106",
+    "username" : "Bharath",
+    "password" : "Bharath",
+    "dateOfBirth" : "17/5/1999",
+    "pan" : "MJG6879",
+    "address" : "Guduvanchery,Chennai",
+    "accounts" : [{
+        "accountId" : 36478910,
+        "customerId" : "CUSTOMER106",
+        "currentBalance" : 20000,
+        "accountType" : "Savings",
+        "ownerName" : "Bharath",
+        "transactions":null
+
+    }]
+}
+
+
+4. Get Details of CUSTOMER105
+
+GET:
+http://localhost:8085/customer/getCustomerDetails/CUSTOMER105
+
+
+5. Get Details of CUSTOMER106
+
+GET:
+http://localhost:8085/customer/getCustomerDetails/CUSTOMER106
+
+
+
+6. Make wihdraw  (after making wihdraws check with step 5/6 to get transactions with respective customer ID)
+
+POST:
+http://localhost:8086/account-ms/withdraw
+
+{
+    "accountId" : 98745625,
+    "amount":25000
+}
+
+7. MAke Deposit  (after making Deposit check with step 5/6 to get transactions with respective customer ID)
+
+POST:
+http://localhost:8086/account-ms/deposit
+
+{
+    "accountId" : 98745625,
+    "amount":50000
+}
+
+8. MAke transfer   (after making Transfer check with step 5&6 to get transactions with respective customer ID)
+http://localhost:8086/account-ms/transaction
+
+{
+    "sourceAccount" : {
+        "accountId" : 98745625,
+        "amount"    : 20000
+    } ,
+    "targetAccount" :{
+        "accountId" : 36478910,
+        "amount"    : 20000
+    },
+    "amount" : 20000,
+    "reference" : "transfer"
+}
