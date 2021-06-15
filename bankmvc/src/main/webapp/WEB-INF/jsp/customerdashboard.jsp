@@ -148,6 +148,14 @@ input[type=number] {
 			<input class="btn btn-warning" type="submit" value="Submit"/>
 		</form>
 		
+		<c:if test="${empty transactions}">
+		<br>
+		
+		<div class="bg-success container text-white">
+			<p>No Transactions are done till now!!</p>
+		</div>
+		</c:if>
+		
 		<c:if test="${!empty transactions}">
 		<br>
 		<table border="2" cellpadding="5" class="table table-striped">
