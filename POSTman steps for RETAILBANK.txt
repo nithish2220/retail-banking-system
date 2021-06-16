@@ -20,17 +20,17 @@ http://localhost:8085/customer/createCustomer
 
 {
     "userid" : "CUSTOMER105",
-    "username" : "gowshik",
-    "password" : "gowshik",
+    "username" : "sri",
+    "password" : "sri",
     "dateOfBirth" : "13/10/1998",
     "pan" : "ABC4547",
-    "address" : "Omr,Chennai",
+    "address" : "Hyd",
     "accounts" : [{
         "accountId" : 98745625,
         "customerId" : "CUSTOMER105",
         "currentBalance" : 75000,
         "accountType" : "Savings",
-        "ownerName" : "Gowshik",
+        "ownerName" : "Sri",
         "transactions":null
 
     }]
@@ -45,17 +45,17 @@ http://localhost:8085/customer/createCustomer
 
 {
     "userid" : "CUSTOMER106",
-    "username" : "Bharath",
-    "password" : "Bharath",
+    "username" : "Nithish",
+    "password" : "Nithish",
     "dateOfBirth" : "17/5/1999",
     "pan" : "MJG6879",
-    "address" : "Guduvanchery,Chennai",
+    "address" : "Hyderabad",
     "accounts" : [{
         "accountId" : 36478910,
         "customerId" : "CUSTOMER106",
         "currentBalance" : 20000,
         "accountType" : "Savings",
-        "ownerName" : "Bharath",
+        "ownerName" : "Nithish",
         "transactions":null
 
     }]
