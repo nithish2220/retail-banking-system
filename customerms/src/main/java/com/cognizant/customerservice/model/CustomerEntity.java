@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -27,7 +28,7 @@ import lombok.Setter;
 @Setter
 public class CustomerEntity {
 	@Id
-	@Column(name = "userid", length = 20,unique=true)
+	@Column(name = "userid", length = 15,unique=true)
 	private String userid;
 	
 	@Column(name = "username", length = 20)
@@ -42,9 +43,11 @@ public class CustomerEntity {
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private Date dateOfBirth; 
 	
+	@Pattern(regexp = "^[A-Z]{5}+[0-9]{4}+[A-Z]{1}$")
 	@Column(name = "pan", length = 10)
 	@NotBlank
 	private String pan;
+	
 	
 	@Column(name = "address")
 	@NotBlank
