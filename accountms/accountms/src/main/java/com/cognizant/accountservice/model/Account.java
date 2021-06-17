@@ -1,12 +1,16 @@
 package com.cognizant.accountservice.model;
 
-
 import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
@@ -17,21 +21,20 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-/**
- * @author sasan
- *
- */
 @Entity
 @Table(name = "ACCOUNT")
 @NoArgsConstructor
-@AllArgsConstructor
+@AllArgsConstructor 
 public class Account {
 
 	// Account model
 	@Id
 	@NotNull(message = "Enter Account number")
 	@Getter
-	@Setter
+	@Setter 
+	@Column(length=10)
+	@SequenceGenerator(name="seq", initialValue = 1000000001)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="seq")
 	private long accountId;
 	
 	@NotBlank(message = "Enter customerId")
@@ -51,8 +54,8 @@ public class Account {
 
 	@Getter
 	@Setter
+	@NotNull(message = "Enter openingDate")
 	private Date openingDate;
-	
 
 	
 	@Getter
@@ -75,6 +78,10 @@ public class Account {
 	@Setter
 	@Transient
 	private List<Transaction> transactions;
-
+	@Override
+	public String toString() {
+		return "Account information : [accountId=" + accountId + ", openingDate=" + openingDate + ", currentBalance=" + currentBalance
+				+ ", accountType=" + accountType + "]";
+	}
 
 }
