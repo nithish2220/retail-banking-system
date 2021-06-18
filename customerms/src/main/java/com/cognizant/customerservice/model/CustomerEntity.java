@@ -33,6 +33,7 @@ import lombok.Setter;
 public class CustomerEntity {
 	@Id
 	@Column(name = "userid", length = 15,unique=true)
+	@Pattern(regexp = "^[A-Za-z0-9_-]*$")
 	private String userid;
 	
 	@Column(name = "username", length = 20)
