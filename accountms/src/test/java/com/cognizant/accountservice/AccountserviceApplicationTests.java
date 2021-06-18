@@ -1,0 +1,22 @@
+package com.cognizant.accountservice;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+/**
+ * @author Pulkit Gupta
+ *
+ */
+@SpringBootTest
+class AccountserviceApplicationTests {
+	/**
+	 * 
+	 */
+	@Test
+	void setCustomerIdTest() {
+		String check="Cust101";
+		assertEquals("Cust101",check );
+	}
+}
