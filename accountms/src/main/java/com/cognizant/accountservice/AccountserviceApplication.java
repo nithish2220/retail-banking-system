@@ -27,5 +27,6 @@ public class AccountserviceApplication {
 	public static void main(String[] args) { 
 		SpringApplication.run(AccountserviceApplication.class, args);
 		LOGGER.info("account micoservice started....");
+		System.out.println("Hello Customer Get Account");
 	}
 }
